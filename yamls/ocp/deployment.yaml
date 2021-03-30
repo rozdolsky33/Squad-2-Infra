@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ui
+    app: deployment-sq2-ui
     version: v1
-  name: ui
+  name: grocery-sq-2-ui
 spec:
   selector:
     matchLabels:
-      app: ui
+      app: deployment-sq2-ui
       version: v1
   template:
     metadata:
       labels:
-        app: ui
+        app: deployment-sq2-ui
         version: v1
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/tekton-argocd/app:16fc615
+      - image: image-registry.openshift-image-registry.svc:5000/tekton-argocd-sq-2/app:latest
         imagePullPolicy: Always
-        name: ui
+        name: deployment-sq2-ui
         ports:
         - containerPort: 3000
